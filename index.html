@@ -1,0 +1,191 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pragati Designs</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body { background-color: #fefefe; color: #333; }
+    header { background-color: #fff; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+    nav { display: flex; justify-content: space-between; align-items: center; }
+    nav h1 { font-size: 1.8rem; color: #c59d5f; }
+    nav ul { display: flex; list-style: none; gap: 20px; }
+    nav a { text-decoration: none; color: #555; font-weight: 500; }
+    nav a:hover { color: #c59d5f; }
+    .hero { padding: 80px 20px; text-align: center; background: #fff7f0; }
+    .hero h2 { font-size: 2.5rem; margin-bottom: 20px; }
+    .hero p { font-size: 1.1rem; }
+    .products { padding: 50px 20px; background-color: #fafafa; }
+    .products h2 { text-align: center; margin-bottom: 40px; color: #c59d5f; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+    .product-card { background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); text-align: center; }
+    .product-card img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; cursor: pointer; }
+    .product-card h3 { margin: 15px 0; font-size: 1.1rem; }
+    .product-card a { display: inline-block; margin-top: 10px; padding: 10px 20px; background: #c59d5f; color: #fff; text-decoration: none; border-radius: 20px; transition: 0.3s; }
+    .product-card a:hover { background: #b0894d; }
+
+    .about, .contact { padding: 50px 20px; text-align: center; }
+    .about h2, .contact h2 { margin-bottom: 20px; color: #c59d5f; }
+    footer { background: #333; color: #fff; text-align: center; padding: 20px; }
+   
+    @media (max-width: 600px) {
+  .product-card img {
+    height: 180px;
+  }
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .modal-content img {
+    max-height: 300px;
+  }
+}
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 90%;
+      max-height: 80%;
+      overflow-y: auto;
+    }
+
+    .modal-content img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
+
+    .close-btn {
+      background: #c59d5f;
+      color: #fff;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      float: right;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Pragati Designs</h1>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h2>Elegant Handmade Jewelry</h2>
+    <p>Discover timeless pieces crafted with love and tradition.</p>
+  </section>
+
+  <section class="products" id="products">
+    <h2>Our Collection</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="product 6.jpeg" alt="Earring">
+        <h3>Necklace</h3>
+        <a href="https://wa.me/?text=Hi%2C%20I'm%20interested%20in%20Golden%20Earring%20from%20Pragati%20Designs">Order on WhatsApp</a>
+      </div>
+
+      <div class="product-card">
+        <img src="necklace1.jpeg" alt="Traditional Necklace" onclick="openModal('necklace1')">
+        <h3>Traditional Necklace</h3>
+        <a href="https://wa.me/?text=Hi%2C%20I'm%20interested%20in%20Traditional%20Necklace%20from%20Pragati%20Designs">Order on WhatsApp</a>
+      </div>
+
+      <div class="product-card">
+        <img src="product 5.jpeg" alt="Bangles">
+        <h3>Antique Necklace</h3>
+        <a href="https://wa.me/?text=Hi%2C%20I'm%20interested%20in%20Colorful%20Bangles%20from%20Pragati%20Designs">Order on WhatsApp</a>
+      </div>
+
+      <div class="product-card">
+        <img src="product 3.jpeg" alt="Bangles">
+        <h3>Bridal Necklace</h3>
+        <a href="https://wa.me/?text=Hi%2C%20I'm%20interested%20in%20Colorful%20Bangles%20from%20Pragati%20Designs">Order on WhatsApp</a>
+      </div>
+
+      <div class="product-card">
+        <img src="product 4.jpeg" alt="Bangles">
+        <h3>Traditional Necklace</h3>
+        <a href="https://wa.me/?text=Hi%2C%20I'm%20interested%20in%20Colorful%20Bangles%20from%20Pragati%20Designs">Order on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2>About Us</h2>
+    <p>Pragati Designs is a small, homegrown jewelry brand run by passionate hands. Every piece is made with care, designed to bring elegance to your style.</p>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact</h2>
+    <p>Have a question or custom request?</p>
+    <p><a href="https://wa.me/91843681279" style="color:#c59d5f;text-decoration:underline;">Chat with us on WhatsApp</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Pragati Designs. All rights reserved.</p>
+  </footer>
+
+  <!-- Modal HTML -->
+  <div class="modal" id="imageModal">
+    <div class="modal-content" id="modalContent">
+      <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <!-- Script to open/close modal -->
+  <script>
+    function openModal(productId) {
+      const modal = document.getElementById('imageModal');
+      const modalContent = document.getElementById('modalContent');
+      const images = [
+        `${productId}.jpeg`,
+        `${productId}_1.jpeg`,
+        `${productId}_2.jpeg`
+      ];
+
+      modalContent.innerHTML = '<button class="close-btn" onclick="closeModal()">Close</button>';
+      images.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        modalContent.appendChild(img);
+      });
+
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('imageModal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
